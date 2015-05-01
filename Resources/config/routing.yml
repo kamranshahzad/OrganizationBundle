@@ -1,0 +1,3 @@
+_cogilent_organization_urls:
+  resource: "@CogilentOrganizationBundle/Controller"
+  type: annotation

@@ -1,0 +1,9 @@
+<layout>
+
+    <regions>
+        <sidebar>
+            <organization_links rule="/organizations" template="organizations-sidebar.html.twig">FOOTER_CLASS</organization_links>
+        </sidebar>
+    </regions>
+
+</layout>

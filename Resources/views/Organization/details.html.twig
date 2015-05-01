@@ -1,0 +1,37 @@
+{% extends themes %}
+
+
+{% block body %}
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+        <li><a href="{{path('front_index')}}">Home</a></li>
+        <li class="active">Organizations</li>
+    </ol>
+    <!-- @breadcrumb -->
+
+    <!-- headings-->
+    <div class="section-header">
+        <h3 class="text-standard"><i class="fa fa-fw fa-arrow-circle-right text-gray-light"></i> Organizations Details<small> Detail of Organizations</small></h3>
+    </div>
+    <!-- @headings-->
+
+    {% for item in details %}
+        </br>
+        <h2><b>Organization :</b></h2>  <h3>{{ item.title }}</h3></br>
+        <h2><b>Description :</b></h2> <h3> {{ item.description }}</h3> </br>
+        <h2><b>Departments :</b></h2>
+        <h3>
+            {% for dep in item.department %}
+                <h3><b>Title :</b></h3> <h4> {{ dep.title }} </h4>
+                <h3><b>Description :</b></h3> <h4> {{ dep.description }}</h4>
+            {% endfor %}
+
+        </h3> </br>
+            {% endfor %}
+    <div style="max-width: 450px">
+
+    </div><!--@div-->
+
+
+{% endblock %}

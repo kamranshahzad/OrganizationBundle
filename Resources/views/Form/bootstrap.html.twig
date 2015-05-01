@@ -1,0 +1,54 @@
+{% block form_row %}
+    {% spaceless %}
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block organization_form_widget %}
+    <div class="fields-container">
+        <div class="form-group">
+            {{ form_errors(form.title) }}
+            {{ form_row(form.title) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(form.description) }}
+            {{ form_row(form.description) }}
+        </div>
+    </div><!-- @fields-container -->
+
+   {{ form_widget(form.departments) }}
+
+    <div class="form-group">
+        <button type="button" id="addEmployeeContactBtn" class="btn btn-warning btn-sm">Add Department</button>
+        <button type="button" id="removeEmployeeContactBtn" class="btn btn-danger btn-sm">Remove Department</button>
+    </div>
+
+{% endblock %}
+
+
+{% block department_form_widget %}
+    {% spaceless %}
+        <div class="contact-container" id="__contactid__" >
+          <h4 >Department</h4>
+          <div class="form-group">
+                    {{ form_errors(form.title) }}
+                    {{ form_widget(form.title) }}
+          </div>
+          <div class="form-group">
+                    {{ form_errors(form.description) }}
+                    {{ form_widget(form.description) }}
+          </div>
+        </div><!--@code-container-->
+    {% endspaceless %}
+{% endblock %}
+
+
+{% block testfieldtype_widget %}
+    {% if myitems is defined %}
+        {{ myitems }}
+    {% else %}
+        <b>No Value found</b>
+    {% endif %}
+{% endblock testfieldtype_widget %}

@@ -1,0 +1,65 @@
+{% extends themes %}
+
+
+{% block body %}
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+        <li><a href="{{path('front_index')}}">Home</a></li>
+        <li class="active">Organizations</li>
+    </ol>
+    <!-- @breadcrumb -->
+
+    <!-- headings-->
+    <div class="section-header">
+        <h3 class="text-standard"><i class="fa fa-fw fa-arrow-circle-right text-gray-light"></i> Edit Organizations <small> Detail of form..</small></h3>
+    </div>
+    <!-- @headings-->
+
+
+    <div style="max-width: 450px">
+      <form class="entity" action="{{ path('organizations_edit',{'id': id}) }}" method="post" {{ form_enctype(form) }} >
+
+          {{ form_widget(form._token) }}
+
+          {{ form_widget(form) }}
+
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Update Organization</button>
+          </div>
+
+      </form>
+    </div><!--@div-->
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+        });
+
+        var _pointer = 0;
+        function addDeparmentForm() {
+            var collectionHolder = $('#organization_form_departments');
+
+            var pointer = collectionHolder.children('.contact-container').length;
+            var prototype = collectionHolder.attr('data-prototype');
+            form = prototype.replace(/__contactid__/g, 'contactContainer-'+pointer);
+            form = prototype.replace(/__name__/g, pointer);
+
+            _pointer = pointer;
+            collectionHolder.append(form);
+            collectionHolder.find('label').remove();
+
+        }
+        $('#addEmployeeContactBtn').click(function(event){
+            //event.preventDefault();
+            addDeparmentForm();
+        });
+        $('#removeEmployeeContactBtn').click(function(event){
+          if(_pointer > 0){
+            $('#contactContainer-'+_pointer).remove();
+            _pointer--;
+          }
+        });
+    </script>
+
+
+{% endblock %}

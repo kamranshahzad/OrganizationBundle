@@ -1,0 +1,93 @@
+{% extends themes %}
+
+
+{% block body %}
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+        <li><a href="{{path('front_index')}}">Home</a></li>
+        <li class="active">Organizations</li>
+    </ol>
+    <!-- @breadcrumb -->
+
+    <!-- headings-->
+    <div class="section-header">
+        <h3 class="text-standard"><i class="fa fa-fw fa-arrow-circle-right text-gray-light"></i> Add Organizations <small> Detail of form..</small></h3>
+    </div>
+    <!-- @headings-->
+
+
+    <div style="max-width: 450px">
+      <form class="entity" action="{{ path('organizations_add') }}" method="post" {{ form_enctype(form) }} >
+
+          {{ form_widget(form._token) }}
+
+          {{ form_widget(form) }}
+
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save Organization</button>
+          </div>
+
+      </form>
+    </div><!--@div-->
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+            addDeparmentForm();
+            addEmailForm();
+        });
+
+        var _pointer = 0;
+        function addDeparmentForm() {
+            var collectionHolder = $('#organization_form_departments');
+
+            var pointer = collectionHolder.children('.contact-container').length;
+            var prototype = collectionHolder.attr('data-prototype');
+            form = prototype.replace(/__contactid__/g, 'contactContainer-'+pointer);
+            form = prototype.replace(/__name__/g, pointer);
+
+            _pointer = pointer;
+            collectionHolder.append(form);
+            collectionHolder.find('label').remove();
+
+        }
+        $('#addEmployeeContactBtn').click(function(event){
+            //event.preventDefault();
+            addDeparmentForm();
+        });
+        $('#removeEmployeeContactBtn').click(function(event){
+          if(_pointer > 0){
+            $('#contactContainer-'+_pointer).remove();
+            _pointer--;
+          }
+        });
+
+        var _pointer1 = 0;
+
+        function addEmailForm() {
+            var collectionHolder = $('#employee_form_emails');
+
+            var pointer1 = collectionHolder.children('.email-container').length;
+            var prototype1 = collectionHolder.attr('data-prototype');
+            form = prototype1.replace(/__emailid__/g, 'emailContainer-'+pointer1);
+            form = prototype1.replace(/__name__/g, pointer1);
+
+            _pointer1 = pointer1;
+            collectionHolder.append(form);
+            collectionHolder.find('label').remove();
+
+        }
+        $('#addEmployeeEmailBtn').click(function(event){
+            //event.preventDefault();
+            addEmailForm();
+        });
+        $('#removeEmployeeEmailBtn').click(function(event){
+            if(_pointer1 > 0){
+                $('#emailContainer-'+_pointer1).remove();
+                _pointer1--;
+            }
+        });
+    </script>
+
+
+{% endblock %}
