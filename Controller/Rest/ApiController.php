@@ -1,6 +1,6 @@
 <?php
 
-namespace Cogilent\OrganizationBundle\Controller\Rest;
+namespace Kamran\OrganizationBundle\Controller\Rest;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -42,8 +42,8 @@ class ApiController extends FOSRestController
     public function getOrganizationsAction(Request $request){
 
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository("CogilentOrganizationBundle:Organization")->findAll();
-        $department = $em->getRepository("CogilentOrganizationBundle:Department")->findAll();
+        $entity = $em->getRepository("KamranOrganizationBundle:Organization")->findAll();
+        $department = $em->getRepository("KamranOrganizationBundle:Department")->findAll();
         $outputArray = array();
         $count = 0;
         $subarray = array();
@@ -87,7 +87,7 @@ class ApiController extends FOSRestController
      */
     public function getOfficeAction(Request $request){
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository("Cogilent\OrganizationBundle\Entity\Office")->findAll();
+        $users = $em->getRepository("Kamran\OrganizationBundle\Entity\Office")->findAll();
         $outputArray = array();
         foreach($users as $user){
             $array = array();

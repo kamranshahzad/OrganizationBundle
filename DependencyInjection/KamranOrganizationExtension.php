@@ -1,6 +1,6 @@
 <?php
 
-namespace Cogilent\OrganizationBundle\DependencyInjection;
+namespace Kamran\OrganizationBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -27,7 +27,7 @@ class CogilentOrganizationExtension extends Extension
 
         $container->setParameter('twig.form.resources', array_merge(
             $container->getParameter('twig.form.resources'),
-            array('CogilentOrganizationBundle:Form:bootstrap.html.twig')
+            array('KamranOrganizationBundle:Form:bootstrap.html.twig')
         ));
 
     }

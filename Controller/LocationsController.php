@@ -1,5 +1,5 @@
 <?php
-namespace Cogilent\OrganizationBundle\Controller;
+namespace Kamran\OrganizationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cogilent\OrganizationBundle\Tests\Controller;
+namespace Kamran\OrganizationBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

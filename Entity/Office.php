@@ -1,6 +1,6 @@
 <?php
 
-namespace Cogilent\OrganizationBundle\Entity;
+namespace Kamran\OrganizationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

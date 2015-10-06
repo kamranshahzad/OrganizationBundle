@@ -1,6 +1,6 @@
 <?php
 
-namespace Cogilent\OrganizationBundle\Form\Type;
+namespace Kamran\OrganizationBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,7 +40,7 @@ class OrganizationType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'Cogilent\OrganizationBundle\Entity\Organization',
+            'data_class' => 'Kamran\OrganizationBundle\Entity\Organization',
         ));
     }
 

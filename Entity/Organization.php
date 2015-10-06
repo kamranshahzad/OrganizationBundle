@@ -1,9 +1,9 @@
 <?php
-namespace Cogilent\OrganizationBundle\Entity;
+namespace Kamran\OrganizationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Cogilent\UserBundle\Entity\User;
+use Kamran\UserBundle\Entity\User;
 
 
 /**
@@ -39,14 +39,14 @@ class Organization
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Cogilent\UserBundle\Entity\User", inversedBy="organizations")
+     * @ORM\ManyToOne(targetEntity="Kamran\UserBundle\Entity\User", inversedBy="organizations")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @var type
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="Cogilent\ContactsBundle\Entity\Employee", mappedBy="user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Kamran\ContactsBundle\Entity\Employee", mappedBy="user", cascade={"persist"})
      * @var type
      */
     private $employees;

@@ -1,0 +1,22 @@
+{
+    "name": "kamran/organization-bundle",
+    "type": "symfony-bundle",
+    "description": "Organizations management bundle",
+    "keywords": [ "organization", "employees", "bundle" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kamran Shahzad",
+            "email": "bleak.unseen@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "OrganizationBundle\\": ""
+        }
+    }
+}

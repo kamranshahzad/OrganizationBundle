@@ -1,5 +1,5 @@
 <?php
-namespace Cogilent\OrganizationBundle\Controller;
+namespace Kamran\OrganizationBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,11 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-use Cogilent\OrganizationBundle\Entity\Organization;
-use Cogilent\OrganizationBundle\Form\Type\OrganizationType;
+use Kamran\OrganizationBundle\Entity\Organization;
+use Kamran\OrganizationBundle\Form\Type\OrganizationType;
 
-use Cogilent\OrganizationBundle\Entity\Office;
-use Cogilent\OrganizationBundle\Form\Type\OfficeType;
+use Kamran\OrganizationBundle\Entity\Office;
+use Kamran\OrganizationBundle\Form\Type\OfficeType;
 
 
 /**
@@ -37,8 +37,8 @@ class OrganizationController extends Controller
      */
     public function detailsAction(Request $request,$id){
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository("CogilentOrganizationBundle:Organization")->findAll();
-        $department = $em->getRepository("CogilentOrganizationBundle:Department")->findAll();
+        $entity = $em->getRepository("KamranOrganizationBundle:Organization")->findAll();
+        $department = $em->getRepository("KamranOrganizationBundle:Department")->findAll();
         $outputArray = array();
         $count = 0;
         $subarray = array();
@@ -107,7 +107,7 @@ class OrganizationController extends Controller
     public function editAction(Request $request,$id){
 
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('CogilentOrganizationBundle:Organization')->findOneBy(array('id' => $id));
+        $entity = $em->getRepository('KamranOrganizationBundle:Organization')->findOneBy(array('id' => $id));
         $form = $this->createForm(new OrganizationType(), $entity);
 
         if ($request->getMethod() === 'POST'){
@@ -143,16 +143,16 @@ class OrganizationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository("CogilentOrganizationBundle:Organization")->find($id);
+        $entity = $em->getRepository("KamranOrganizationBundle:Organization")->find($id);
         if (!$entity) {
             throw $this->createNotFoundException('Organization with id=' . $id . ' not found');
         }
-        $department = $em->getRepository("CogilentOrganizationBundle:Department")->findAll();
+        $department = $em->getRepository("KamranOrganizationBundle:Department")->findAll();
 
         foreach ($department as $departments) {
             if($departments->getOrganization()->getId() == $id){
 
-                $entitydepartment = $em->getRepository("CogilentOrganizationBundle:EmployeeEmail")->find($departments->getId());
+                $entitydepartment = $em->getRepository("KamranOrganizationBundle:EmployeeEmail")->find($departments->getId());
                 $em->remove($entitydepartment);
             }
         }
@@ -200,7 +200,7 @@ class OrganizationController extends Controller
     public function editOfficeAction(Request $request,$id){
 
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('CogilentOrganizationBundle:Office')->findOneBy(array('id' => $id));
+        $entity = $em->getRepository('KamranOrganizationBundle:Office')->findOneBy(array('id' => $id));
         $form = $this->createForm(new OfficeType(), $entity);
 
         if ($request->getMethod() === 'POST'){
@@ -225,7 +225,7 @@ class OrganizationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository("CogilentOrganizationBundle:Office")->find($id);
+        $entity = $em->getRepository("KamranOrganizationBundle:Office")->find($id);
         if (!$entity) {
             throw $this->createNotFoundException('Office with id=' . $id . ' not found');
         }
