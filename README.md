@@ -2,6 +2,11 @@
 
 ## Description:
 
+Organization bundle is developed for many offices which are in different locations. 
+This bundle manages many organizations and their offices. ContactBundle provides the functionality to manage 
+organization employees information.
+
+![alt text](https://github.com/kamranshahzad/OrganizationBundle/blob/master/Resources/public/images/orgranization_screenshot.png "Organizations screenshot")
 
 ## Installation.
 
