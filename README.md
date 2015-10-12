@@ -8,6 +8,12 @@ organization employees information.
 
 ![alt text](https://github.com/kamranshahzad/OrganizationBundle/blob/master/Resources/public/images/orgranization_screenshot.png "Organizations screenshot")
 
+### Key Features:
+* Manage organizations
+* Manage Departments
+* Manage Offices
+
+
 ## Installation.
 
 Using composer
